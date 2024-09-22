@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const tf = require('@tensorflow/tfjs-node');
 const multer = require('multer');
 const sharp = require('sharp');
@@ -8,7 +7,8 @@ const storage = multer.memoryStorage()
 const upload = multer({ storage: storage })
 const handler = tf.io.fileSystem(`${__dirname}/../tfjs/model.json`);
 const { tags } = require("./tags")
-
+var argv = require('minimist')(process.argv.slice(2));
+const port = Number(argv.port ?? '3000');
 let mark = false
 let model;
 function loadModel() {
