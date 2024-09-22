@@ -18,4 +18,4 @@ COPY . /app/
 RUN yarn
 RUN npm rebuild @tensorflow/tfjs-node --build-from-source
 EXPOSE 3333
-RUN yarn dev --port 3333
+CMD yarn dev --port 3333
