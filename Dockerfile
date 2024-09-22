@@ -17,4 +17,5 @@ WORKDIR /app
 COPY . /app/
 RUN yarn
 RUN npm rebuild @tensorflow/tfjs-node --build-from-source
-RUN yarn dev
+EXPOSE 3333
+RUN yarn dev --port 3333
